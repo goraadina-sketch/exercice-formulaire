@@ -1,0 +1,150 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --gradiant:linear-gradient(110deg,#8739AD 0%, #B62B69 30%, #FF473A 60%, #FFB347 100%);
+}
+
+/* ===== Style général de la page ===== */
+body {
+    font-family:Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+    
+    background-image: var(--gradiant);
+    background-repeat: no-repeat;
+    align-content: center;
+    font-size: 15pt;
+}
+
+/*======== CONTENEUR DU FORMULAIRE========*/
+
+.container-formulaire {
+    width: 325px;
+    min-height: 425px;
+    margin: 0 auto;
+    padding: 40px 30px 30px;
+    text-align: center;
+
+    background-color: rgba(255, 160, 145, 0.35);
+    border: 0.5px solid white;
+    border-radius: 10px ;
+    
+
+    box-shadow: 0px 0px 30px 10px rgba(255, 255, 255,0.8);
+    transition: 0.4s ease;
+
+}
+
+#title-formulaire {
+   
+    color: white;
+    font-size: 1.5rem ;
+    position: relative;
+    margin-bottom: 25px;
+}
+
+#title-formulaire::after {
+    content: " ";
+    display: block;
+    width: 75px ;
+    height: 7px;
+
+    margin: 5px auto 0;
+    
+    background-image: var(--gradiant);
+    border-radius: 10px;
+}
+
+/* ==== Champs de saisie ==== */
+
+.inputs-formulaire > div {
+    margin-bottom: 18px;
+}
+
+.inputs-formulaire label {
+    display: block;
+    width: 190px;
+    margin: 0 auto 5px;
+    text-align: left;
+
+    font-size: smaller;
+    color: white;
+
+    opacity: 0;
+
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+    
+    
+.inputs-formulaire input {
+    display: block;
+    width: 190px;
+    margin: 0 auto;
+    padding: 4px 6px;
+
+    border-radius: 999px;
+    border: 2px solid white;
+}
+
+/* ==== Animation des labels au focus ==== */
+
+.inputs-formulaire input:focus {
+    outline: none;
+}
+
+.inputs-formulaire label:has(+input:focus) {
+    font-size: smaller;
+    opacity: 1;
+    transform: translateY(-30%);
+}
+
+.inputs-formulaire input:user-valid{
+    border: 3px solid green;
+}
+
+.inputs-formulaire input:user-invalid{
+    border: 3px solid red;
+}
+
+/* ==== Bouton submit ==== */
+#btn {
+    padding: 12px 30px;
+    font-size: 1rem;
+    margin-top: 16px;
+    font-weight: bold;
+    font-family:Arial, Helvetica, sans-serif;
+
+    color: white;
+    border: none;
+    background:linear-gradient(to right,#20BFFF,#168BFF);
+    border-radius: 8px;
+
+    position: relative;
+}
+
+#btn::before {
+    content: " ";
+    position: absolute;
+    background-image: var(--gradiant);
+
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 100%;
+
+    border-radius: inherit;
+    transition: width 0.5s ease;
+}
+
+#btn:hover::before {
+    width: 100%;
+}
+
+#btn span {
+    position: relative;
+    z-index: 1;
+}
+
